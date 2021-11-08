@@ -1,0 +1,72 @@
+.Login {
+    width: 100vw;
+    height: 100vh;
+    background: var(--secondary);
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 20vh;
+}
+.card {
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px var(--dark);
+    padding: 50px;
+}
+.card h2 {
+    font-size: 22px;
+    text-align: center;
+    color: var(--dark);
+}
+.card svg {
+    font-size: 45px;
+    padding: 20px;
+    background: var(--secondary);
+    color: var(--white);
+    width: 70px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.card form input {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: 0;
+    background: var(--light-grey);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: var(--grey);
+}
+.card form input::placeholder {
+    color: var(--grey2);
+}
+.card form button {
+    border: none;
+    border-radius: 4px;
+    background: var(--secondary);
+    color: var(--white);
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.card form button:hover {
+    background: var(--primary);
+}
+.card > p {
+    font-size: 12px;
+    text-align: center;
+}
+.card > p > a {
+    color: var(--primary);
+    text-decoration: none;
+}
