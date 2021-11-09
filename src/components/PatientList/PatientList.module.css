@@ -1,0 +1,18 @@
+.PatientList {
+    margin: 20px 0 20px 75px;
+}
+.PatientSearch input {
+    width: 100%;
+    outline: 0;
+    border: none;
+    padding: 10px;
+    color: var(--grey);
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.PatientSearch input:focus,
+.PatientSearch input:hover {
+    outline: 0;
+}
+.PatientSearch input::placeholder {
+    color: var(--grey);
+}

@@ -1,0 +1,27 @@
+.SideNav {
+    position: fixed;
+    height: 94vh;
+    width: 50px;
+    left: 0;
+    top: 20px;
+    background: var(--white);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.Wrapper {
+    margin-top: 20px;
+}
+.Wrapper a {
+    display: block;
+    padding: 10px;
+}
+.Wrapper a svg {
+    display: block;
+    color: var(--primary);
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.Wrapper a:hover {
+    background: var(--light);
+}

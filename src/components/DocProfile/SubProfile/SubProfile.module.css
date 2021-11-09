@@ -1,0 +1,65 @@
+.SubProfile {
+    margin: 20px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.Wrapper > div:first-child {
+    display: grid;
+    grid-template-columns: minmax(0, 15%) minmax(0, 85%);
+}
+.DocImg {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+}
+
+.NameWrap {
+    padding-top: 7px;
+}
+.NameWrap p {
+    margin: 0 0 5px 0;
+}
+.NameWrap p:first-child {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 500;
+}
+.NameWrap p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--grey);
+    margin-bottom: 2px;
+}
+.NameWrap p:nth-child(3) {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.Wrapper {
+    position: relative;
+}
+.Wrapper > div:nth-child(2) {
+    margin-top: 20px;
+    border-top: 2px solid var(--light-grey);
+}
+.Wrapper > div:nth-child(2) h3 {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 5px 0 5px 0;
+    transform: rotate(-90deg);
+    display: inline-block;
+    position: absolute;
+    left: -10px;
+    top: 145px;
+}
+.Wrapper > div:nth-child(2) p {
+    margin-top: 15px;
+    margin-left: 40px;
+    font-size: 14px;
+    color: var(--grey);
+}
