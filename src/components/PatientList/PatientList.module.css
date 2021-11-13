@@ -8,6 +8,7 @@
     padding: 10px;
     color: var(--grey);
     box-shadow: 0 5px 10px var(--light-grey);
+    box-sizing: border-box;
 }
 .PatientSearch input:focus,
 .PatientSearch input:hover {
@@ -15,4 +16,38 @@
 }
 .PatientSearch input::placeholder {
     color: var(--grey);
+}
+
+.heading {
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--white);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.AllPatient {
+    background: var(--white);
+    padding: 0 0 10px 0;
+    display: block;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+
+.PaientChart > button {
+    border: none;
+    outline: 0;
+    color: var(--grey);
+    background: var(--white);
+    display: block;
+    box-shadow: 0 5px 10px var(--light-grey);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
 }

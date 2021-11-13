@@ -1,22 +1,26 @@
-import { faAddressBook, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook, faClock, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import classes from './SideNav.module.css'
 
 const SideNav = () => {
+    const location = useLocation()
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
-                <Link to="/">
+                <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faHome} />
                 </Link>
-                <Link to="/">
+                <Link to="/profile">
                     <FontAwesomeIcon icon={faUserMd} />
                 </Link>
-                <Link to="/">
+                <Link to="/schedule">
+                    <FontAwesomeIcon icon={faClock} />
+                </Link>
+                <Link to="/login">
                     <FontAwesomeIcon icon={faAddressBook} />
                 </Link>
-                <Link to="/">
+                <Link to="/register">
                     <FontAwesomeIcon icon={faSignOutAlt} />
                 </Link>
             </div>
