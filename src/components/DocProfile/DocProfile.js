@@ -1,9 +1,23 @@
+import SideNav from '../SideNav/SideNav'
+import AllChambers from './AllChamber/AllChambers'
+import Card from './Card/Card'
 import classes from './DocProfile.module.css'
+import Schedule from './Schedule/Schedule'
 
 const DocProfile = () => {
     return (
         <div className={classes.DocProfile}>
-            <h2>DocProfile</h2>
+            <SideNav />
+            <div className={classes.Wrapper}>
+                <Card />
+                <div className={classes.Details}>
+                    <h2>Details</h2>
+                </div>
+                <div>
+                    <Schedule />
+                    <AllChambers />
+                </div>
+            </div>
         </div>
     )
 }

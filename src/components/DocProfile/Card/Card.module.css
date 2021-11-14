@@ -1,0 +1,72 @@
+.Card {
+    margin: 20px 0 0 0;
+    padding: 20px 0;
+    background: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.DocImg {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+    margin: 0 auto;
+}
+.title {
+    text-align: center;
+}
+.title h3 {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 10px 0;
+    color: var(--primary);
+}
+.title p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.title p:nth-child(2) {
+    color: var(--dark-blue);
+}
+.title p:nth-child(3) {
+    color: var(--grey);
+}
+.title span {
+    background: var(--light-grey);
+    width: 80%;
+    height: 1px;
+    display: block;
+    margin: 15px auto;
+}
+.Chamber p:nth-child(1) {
+    text-align: center;
+    color: var(--dark-blue);
+    margin: 5px 0;
+}
+.Chamber p:nth-child(2) {
+    color: var(--grey);
+    font-size: 12px;
+    margin: 5px 30px;
+    text-align: center;
+}
+
+.BMDC {
+    background: var(--white);
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.BMDC p {
+    margin: 5px 0;
+    text-align: center;
+}
+.BMDC p:nth-child(1) {
+    font-size: 14px;
+    color: var(--dark-blue);
+    font-weight: 400;
+}
+.BMDC p:nth-child(2) {
+    font-weight: 600;
+    color: var(--dark-blue);
+}

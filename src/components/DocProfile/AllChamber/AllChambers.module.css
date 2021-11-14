@@ -1,0 +1,28 @@
+.AllChambers {
+    margin: 20px;
+    background: var(--white);
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.AllChambers h4 {
+    margin: 0 20px;
+    padding: 20px 0 0 0;
+    color: var(--primary);
+    text-align: center;
+    font-weight: 500;
+}
+.SingleChamber {
+    margin: 20px;
+}
+
+.SingleChamber p {
+    margin: 5px;
+    font-size: 12px;
+}
+.SingleChamber p:nth-child(1) {
+    color: var(--dark-blue);
+}
+.SingleChamber p:nth-child(2) {
+    color: var(--grey);
+}

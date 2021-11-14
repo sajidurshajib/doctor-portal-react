@@ -11,7 +11,7 @@ const SideNav = () => {
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faHome} />
                 </Link>
-                <Link to="/profile">
+                <Link to="/profile" className={location.pathname === '/profile' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faUserMd} />
                 </Link>
                 <Link to="/schedule">
