@@ -2,6 +2,7 @@ import SideNav from '../SideNav/SideNav'
 import AllChambers from './AllChamber/AllChambers'
 import Card from './Card/Card'
 import classes from './DocProfile.module.css'
+import Professional from './Professional/Professional'
 import Schedule from './Schedule/Schedule'
 
 const DocProfile = () => {
@@ -11,7 +12,7 @@ const DocProfile = () => {
             <div className={classes.Wrapper}>
                 <Card />
                 <div className={classes.Details}>
-                    <h2>Details</h2>
+                    <Professional />
                 </div>
                 <div>
                     <Schedule />
