@@ -1,7 +1,7 @@
 .Login {
     width: 100vw;
     height: 100vh;
-    background: var(--secondary);
+    background: var(--primary);
 }
 .wrapper {
     display: flex;
@@ -24,7 +24,7 @@
 .card svg {
     font-size: 45px;
     padding: 20px;
-    background: var(--secondary);
+    background: var(--primary);
     color: var(--white);
     width: 70px;
     height: 40px;
@@ -51,7 +51,7 @@
 .card form button {
     border: none;
     border-radius: 4px;
-    background: var(--secondary);
+    background: var(--primary);
     color: var(--white);
     display: inline-block;
     width: 100%;

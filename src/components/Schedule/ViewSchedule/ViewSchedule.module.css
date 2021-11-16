@@ -1,0 +1,47 @@
+.Wrapper {
+    background: var(--white);
+    margin-right: 20px;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 20px;
+    box-shadow: 0 5px 10px var(--light-grey);
+}
+.ViewSchedule > div > h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+.calender {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 14.28%));
+}
+/* .calender > div {
+    border-right: 1px solid var(--light-grey);
+}
+.calender > div:nth-child(7) {
+    border: none;
+} */
+.calender > div > p:nth-child(1) {
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--primary);
+    padding: 5px 0;
+}
+.calender .time {
+    text-align: center;
+    display: block;
+    padding: 5px 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--primary);
+    margin: 10px 5px;
+    box-shadow: 0 5px 10px var(--light-grey);
+    border-radius: 2px;
+}
+.calender .time span {
+    display: block;
+}

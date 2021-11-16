@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 :root {
-    --primary: #088bff;
+    --primary: #457dc3;
     --secondary: #4aa9fd;
     --dark: #333;
     --dark-blue: #23395d;
@@ -18,7 +18,6 @@
 body {
     margin: 0;
 }
-
 
 .container {
     padding-right: 15px;

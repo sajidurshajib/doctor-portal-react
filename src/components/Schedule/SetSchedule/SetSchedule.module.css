@@ -1,0 +1,158 @@
+.SetSchedule {
+    background: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px var(--light-grey);
+    padding: 20px;
+    box-sizing: border-box;
+}
+.SetSchedule h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+.SetSchedule h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--primary);
+    margin: 10px 0;
+    padding: 0 20px 0 10px;
+    display: inline-block;
+    border-radius: 4px 0 0 4px;
+    position: relative;
+}
+.SetSchedule h5::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 13px solid var(--primary);
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 11px solid var(--primary);
+    right: -23px;
+    top: 0;
+}
+
+.checkGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 4fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.singleCheck input[type='checkbox'] {
+    display: none;
+}
+
+.singleCheck label {
+    display: block;
+    width: 100%;
+    color: var(--primary);
+    background: var(--light-grey);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 4px 15px;
+    font-size: 12px;
+    color: var(--grey);
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: 200ms;
+}
+
+.singleCheck input[type='checkbox']:checked + label {
+    color: var(--white);
+    background: var(--primary);
+}
+.singleCheck label:hover {
+    transform: scale(1.1);
+}
+
+/* 
+.selectWrap {
+    position: relative;
+}
+.SetSchedule > .selectWrap > select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    color: var(--dark-blue);
+    background: var(--white);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid var(--primary);
+    outline: 0;
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.SetSchedule > .selectWrap > select > option {
+    color: var(--primary);
+    background: var(--white);
+    cursor: pointer;
+}
+.SetSchedule > .selectWrap span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid var(--dark-blue);
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    right: 12px;
+    top: 12px;
+} */
+
+.inp {
+    display: grid;
+    grid-template-columns: minmax(0, 30%) minmax(0, 30%) minmax(0, 40%);
+    gap: 10px;
+}
+
+.inp input[type='number'] {
+    -moz-appearance: textfield;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inp input,
+.inp select {
+    border: 1px solid var(--primary);
+    padding: 5px;
+    border-radius: 2px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--white);
+}
+.inp input:hover,
+.inp input:focus,
+.inp select:focus {
+    outline: 0;
+}
+
+.SetSchedule button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: 0;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--white);
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
