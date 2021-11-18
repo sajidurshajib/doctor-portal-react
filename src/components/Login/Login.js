@@ -1,5 +1,6 @@
 import { faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import classes from './Login.module.css'
 
@@ -11,8 +12,8 @@ const Login = () => {
                     <FontAwesomeIcon icon={faUserMd} />
                     <h2>Login</h2>
                     <form>
-                        <input type="text" placeholder="Type your Username" />
-                        <input type="password" placeholder="Type your Password" />
+                        <input type="text" placeholder="Email or Phone" />
+                        <input type="password" placeholder="Password" />
                         <button>Login</button>
                     </form>
                     <p>

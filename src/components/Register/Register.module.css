@@ -37,7 +37,10 @@
     grid-template-columns: minmax(0, 50%) minmax(0, 50%);
     gap: 10px;
 }
-
+.card form > input {
+    width: 100%;
+    box-sizing: border-box;
+}
 .card form input,
 .card form select {
     display: block;
@@ -64,7 +67,7 @@
     -moz-appearance: textfield;
 }
 .card form input::placeholder {
-    color: var(--grey2);
+    color: var(--grey);
 }
 .card form button {
     border: none;
