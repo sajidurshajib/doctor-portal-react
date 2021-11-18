@@ -39,6 +39,7 @@ const Register = () => {
         })
 
         let reg = await regId.json()
+        console.log(reg)
 
         let doctorId = await fetch('doctors/', {
             headers: {
@@ -55,6 +56,7 @@ const Register = () => {
         })
 
         let doctor = await doctorId.json()
+        console.log(doctor)
 
         let specialId = await fetch(`doctors/${doctor.id}/specialities/`, {
             headers: {
@@ -69,6 +71,7 @@ const Register = () => {
         })
 
         let special = await specialId.json()
+        console.log(special)
 
         history.push('/login')
     }
@@ -84,9 +87,6 @@ const Register = () => {
                         <div className={classes.grid}>
                             <div className={classes.gridItem}>
                                 <select onChange={(e) => setSex(e.target.value)} value={sex}>
-                                    <option value="not selected" disabled>
-                                        Sex
-                                    </option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
