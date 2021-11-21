@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/RegisterPage'
 import SchedulePage from './pages/SchedulePage'
 import { authState, authReducer } from './reducer/authReducer'
+import ProtectedRoute from './routes/ProtectedRoute'
 
 const App = () => {
     const [stateAuth, dispatchAuth] = useReducer(authReducer, authState)
@@ -16,21 +17,11 @@ const App = () => {
             <Auth.Provider value={{ stateAuth, dispatchAuth }}>
                 <Router>
                     <Switch>
-                        <Route path="/" exact={true}>
-                            <Home />
-                        </Route>
-                        <Route path="/profile">
-                            <ProfilePage />
-                        </Route>
-                        <Route path="/schedule">
-                            <SchedulePage />
-                        </Route>
-                        <Route path="/login">
-                            <LoginPage />
-                        </Route>
-                        <Route path="/register">
-                            <RegisterPage />
-                        </Route>
+                        <ProtectedRoute path="/" exact={true} component={Home} />
+                        <ProtectedRoute path="/profile" component={ProfilePage} />
+                        <ProtectedRoute path="/schedule" component={SchedulePage} />
+                        <Route path="/login" component={LoginPage} />
+                        <Route path="/register" component={RegisterPage} />
                     </Switch>
                 </Router>
             </Auth.Provider>

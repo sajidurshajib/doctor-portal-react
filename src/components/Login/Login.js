@@ -1,12 +1,14 @@
 import { faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Auth } from '../../allContext'
 import classes from './Login.module.css'
 
 const Login = () => {
     const { stateAuth, dispatchAuth } = useContext(Auth)
+
+    const history = useHistory()
 
     const [identifier, setIdentifier] = useState('')
     const [password, setPassword] = useState('')
@@ -34,6 +36,10 @@ const Login = () => {
         }
     }
 
+    // Redirect if login
+    if (stateAuth.auth) {
+        history.push('/')
+    }
     return (
         <div className={classes.Login}>
             <div className={classes.wrapper}>

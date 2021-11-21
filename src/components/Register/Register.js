@@ -1,7 +1,8 @@
 import { faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Auth } from '../../allContext'
 import classes from './Register.module.css'
 
 const Register = () => {
@@ -16,6 +17,7 @@ const Register = () => {
     const [bmdc, setBmdc] = useState('')
     const [alert, setAlert] = useState([])
 
+    const { stateAuth } = useContext(Auth)
     const history = useHistory()
 
     const submit = async (e) => {
@@ -90,6 +92,10 @@ const Register = () => {
         }
     }
 
+    // Redirect if login
+    if (stateAuth.auth) {
+        history.push('/')
+    }
     return (
         <div className={classes.Register}>
             <div className={classes.wrapper}>
