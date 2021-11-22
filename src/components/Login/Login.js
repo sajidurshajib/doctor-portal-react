@@ -16,7 +16,7 @@ const Login = () => {
     const submit = async (e) => {
         e.preventDefault()
 
-        let logFetch = await fetch('login/', {
+        let logFetch = await fetch('/login', {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

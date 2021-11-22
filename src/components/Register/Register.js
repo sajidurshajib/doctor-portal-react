@@ -49,14 +49,12 @@ const Register = () => {
         let reg = await regId.json()
         // console.log(reg)
 
-        if (regId.status < 400) {
-            history.push('/login')
-        } else if (regId.status >= 400) {
+        if (!regId.ok) {
             let newMessage = reg.context.message
             setAlert([...alert, newMessage])
         }
 
-        if (regId.status < 400) {
+        if (regId.ok) {
             let doctorId = await fetch('doctors/', {
                 headers: {
                     Accept: 'application/json',
@@ -72,7 +70,6 @@ const Register = () => {
             })
 
             let doctor = await doctorId.json()
-            // console.log(doctor)
 
             let specialId = await fetch(`doctors/${doctor.id}/specialities/`, {
                 headers: {
@@ -89,6 +86,7 @@ const Register = () => {
             // let special = await specialId.json()
             await specialId.json()
             // console.log(special)
+            history.push('login/')
         }
     }
 
