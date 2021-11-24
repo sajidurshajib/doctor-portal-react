@@ -1,3 +1,4 @@
+import ViewSchedule from '../Schedule/ViewSchedule/ViewSchedule'
 import SideNav from '../SideNav/SideNav'
 import AllChambers from './AllChamber/AllChambers'
 import Card from './Card/Card'
@@ -13,6 +14,7 @@ const DocProfile = () => {
                 <Card />
                 <div className={classes.Details}>
                     <Professional />
+                    <ViewSchedule />
                 </div>
                 <div>
                     <Schedule />

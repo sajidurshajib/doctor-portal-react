@@ -37,17 +37,3 @@
     border-radius: 0 0 4px 4px;
     box-shadow: 0 5px 10px var(--light-grey);
 }
-
-.PaientChart > button {
-    border: none;
-    outline: 0;
-    color: var(--grey);
-    background: var(--white);
-    display: block;
-    box-shadow: 0 5px 10px var(--light-grey);
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 100%;
-    cursor: pointer;
-}

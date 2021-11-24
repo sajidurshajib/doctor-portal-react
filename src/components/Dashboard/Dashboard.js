@@ -1,7 +1,8 @@
 import MultiLine from '../Chart/MultiLine/MultiLine'
-import SubProfile from '../DocProfile/SubProfile/SubProfile'
+// import SubProfile from '../DocProfile/SubProfile/SubProfile'
 import Doctors from '../Doctors/Doctors'
 import PatientList from '../PatientList/PatientList'
+import TodayList from '../PatientList/TodayList'
 import SideNav from '../SideNav/SideNav'
 import classes from './Dashboard.module.css'
 
@@ -15,7 +16,8 @@ const Dashboard = () => {
                     <Doctors />
                 </div>
                 <div className={classes.DoctorSide}>
-                    <SubProfile />
+                    {/* <SubProfile /> */}
+                    <TodayList />
                     <MultiLine />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { faAddressBook, faClock, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faClock, faCog, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -22,12 +22,13 @@ const SideNav = () => {
                 <Link to="/schedule" className={location.pathname === '/schedule' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faClock} />
                 </Link>
-                <Link to="/login">
-                    <FontAwesomeIcon icon={faAddressBook} />
+                <Link to="/analytics" className={location.pathname === '/analytics' ? classes.active : ''}>
+                    <FontAwesomeIcon icon={faChartLine} />
                 </Link>
-                <Link to="/register">
-                    <FontAwesomeIcon icon={faSignOutAlt} />
+                <Link to="/settings" className={location.pathname === '/settings' ? classes.active : ''}>
+                    <FontAwesomeIcon icon={faCog} />
                 </Link>
+
                 <Link to="/login" onClick={() => dispatchAuth({ type: 'remove' })}>
                     <FontAwesomeIcon icon={faSignOutAlt} />
                 </Link>

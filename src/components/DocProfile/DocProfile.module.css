@@ -9,3 +9,8 @@
     grid-template-columns: minmax(0, 20%) minmax(0, 50%) minmax(0, 30%);
     gap: 10px;
 }
+.Details > div:nth-child(2) {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}

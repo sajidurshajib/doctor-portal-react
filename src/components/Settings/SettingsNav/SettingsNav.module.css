@@ -1,0 +1,47 @@
+.SettingsNav {
+    padding-bottom: 10px;
+}
+.Wrap {
+    border-right: 1px solid var(--light-grey);
+}
+.SettingsNav h3 {
+    color: var(--primary);
+    font-weight: 500;
+    margin: 15px 0 5px 20px;
+}
+.SettingsNav p {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    padding: 5px 0 4px 20px;
+    cursor: pointer;
+    position: relative;
+}
+.SettingsNav p::before {
+    position: absolute;
+    content: '';
+    right: -10px;
+    top: 4px;
+    transform: rotate(45deg);
+    border-top: 10px solid var(--light-grey);
+    border-right: 10px solid var(--light-grey);
+    border-bottom: 10px solid var(--light-grey);
+    border-left: 10px solid var(--light-grey);
+    display: none;
+}
+
+.SettingsNav p:hover {
+    /* background: var(--primary); */
+    color: var(--primary);
+}
+/* .SettingsNav p:hover::before {
+    display: block;
+} */
+
+.SettingsNav p.active {
+    background: var(--light-grey);
+    color: var(--primary);
+}
+.SettingsNav p.active::before {
+    display: block;
+}

@@ -26,8 +26,6 @@ const Card = () => {
         funFetch()
     }, [stateAuth])
 
-    console.log(profile)
-
     return (
         <div>
             <div className={classes.Card}>

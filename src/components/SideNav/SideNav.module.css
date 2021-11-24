@@ -28,6 +28,9 @@
 .Wrapper a:hover > svg {
     color: var(--primary);
 }
+.Wrapper a.active {
+    background: var(--light);
+}
 .Wrapper a.active > svg {
     color: var(--primary);
 }
