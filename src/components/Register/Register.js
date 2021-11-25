@@ -70,6 +70,7 @@ const Register = () => {
             })
 
             let doctor = await doctorId.json()
+            console.log(doctor)
 
             let specialId = await fetch(`doctors/${doctor.id}/specialities/`, {
                 headers: {
@@ -83,10 +84,11 @@ const Register = () => {
                 }),
             })
 
-            // let special = await specialId.json()
             await specialId.json()
-            // console.log(special)
-            history.push('login/')
+
+            if (!regId.ok) {
+                history.push('login/')
+            }
         }
     }
 

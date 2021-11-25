@@ -1,0 +1,5 @@
+{
+    "ep": "https://devep.healthx.com.bd",
+    "doc-local": "http://localhost:3000",
+    "ep-local": "http://localhost:3002"
+}

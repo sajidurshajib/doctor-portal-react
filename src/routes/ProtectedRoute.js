@@ -8,7 +8,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={(props) => (stateAuth.auth ? <Component {...rest} {...props} /> : <Redirect to="/login" />)}
+            render={(props) =>
+                stateAuth.token.length !== 0 ? <Component {...rest} {...props} /> : <Redirect to="/login" />
+            }
         />
     )
 }

@@ -3,16 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Auth } from '../../allContext'
+import conf from '../../config.json'
 import classes from './SideNav.module.css'
 
 const SideNav = () => {
     const location = useLocation()
 
-    const { dispatchAuth } = useContext(Auth)
+    const { stateAuth, dispatchAuth } = useContext(Auth)
 
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
+                <a href={`${conf['ep-local']}/auth/${stateAuth.token}`}>EP</a>
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faHome} />
                 </Link>
