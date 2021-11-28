@@ -9,6 +9,22 @@
     padding-right: 40px;
     border-bottom: 2px solid var(--primary);
 }
+.successFlash {
+    color: var(--white);
+    background: var(--green);
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+.warningFlash {
+    color: var(--white);
+    background: var(--red);
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
 .wrapInp {
     display: grid;
     grid-template-columns: minmax(0, 60%) minmax(0, 40%);
@@ -19,7 +35,8 @@
     width: 100%;
 }
 
-.General form input {
+.General form input,
+.General form select {
     display: block;
     appearance: none;
     -webkit-appearance: none;
@@ -33,6 +50,9 @@
     font-size: 12px;
     color: var(--grey);
     box-sizing: border-box;
+}
+.General form select {
+    width: 50%;
 }
 .General form input::placeholder {
     color: var(--grey2);

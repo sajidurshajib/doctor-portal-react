@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import { useState } from 'react/cjs/react.development'
 import { Auth } from '../../../allContext'
 import DocStock from '../../../assets/img/docstock.jpg'
+import config from '../../../config.json'
 import classes from './Card.module.css'
 
 const Card = () => {
@@ -10,7 +11,7 @@ const Card = () => {
 
     useEffect(() => {
         let funFetch = async () => {
-            let logFetch = await fetch('me/', {
+            let logFetch = await fetch(`${config.api}/me`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',

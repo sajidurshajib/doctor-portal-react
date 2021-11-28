@@ -28,7 +28,7 @@ const Register = () => {
             return
         }
 
-        let regId = await fetch('signup/', {
+        let regId = await fetch('/signup', {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Register = () => {
             })
 
             let doctor = await doctorId.json()
-            console.log(doctor)
+            // console.log(doctor)
 
             let specialId = await fetch(`doctors/${doctor.id}/specialities/`, {
                 headers: {
