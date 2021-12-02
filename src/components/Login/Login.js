@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { Auth } from '../../allContext'
+import config from '../../config.json'
 import classes from './Login.module.css'
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
     const submit = async (e) => {
         e.preventDefault()
 
-        let logFetch = await fetch('/login', {
+        let logFetch = await fetch(`${config.api}/login`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

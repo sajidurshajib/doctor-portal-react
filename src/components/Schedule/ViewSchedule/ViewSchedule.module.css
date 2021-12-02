@@ -45,3 +45,24 @@
 .calender .time span {
     display: block;
 }
+.time {
+    position: relative;
+    overflow: hidden;
+}
+.time span:nth-child(2) {
+    position: absolute;
+    top: -27px;
+    right: -27px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background: var(--white);
+    border-radius: 50px;
+    color: var(--dark-blue);
+    cursor: pointer;
+    transition: 200ms;
+}
+.time:hover span:nth-child(2) {
+    top: -7px;
+    right: -7px;
+}

@@ -1,44 +1,206 @@
+import { useEffect, useContext, useState } from 'react'
+import { Auth } from '../../../allContext'
+import { api } from '../../../config.json'
 import classes from './ViewSchedule.module.css'
 
-const ViewSchedule = () => {
+const ViewSchedule = ({ change }) => {
+    const { stateAuth } = useContext(Auth)
+
+    const [schedule, setSchedule] = useState('')
+
+    console.log(schedule)
+
+    useEffect(() => {
+        const funFetch = async () => {
+            let meFetch = await fetch(`${api}/me`, {
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${stateAuth.token}`,
+                },
+                dataType: 'json',
+                method: 'GET',
+            })
+
+            let meLog = await meFetch.json()
+
+            let scheduleFetch = await fetch(`${api}/doctors/${meLog.id}/schedules`)
+            let allSchedule = await scheduleFetch.json()
+
+            allSchedule.schedules.sort((a, b) => (a.start_time > b.start_time ? 1 : -1))
+
+            setSchedule(allSchedule.schedules)
+        }
+
+        funFetch()
+    }, [change, stateAuth, schedule])
+
+    const deleteSchedule = async (id) => {
+        let meFetch = await fetch(`${api}/me`, {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${stateAuth.token}`,
+            },
+            dataType: 'json',
+            method: 'GET',
+        })
+
+        let meLog = await meFetch.json()
+
+        let delSchedule = await fetch(`${api}/doctors/${meLog.id}/schedules/${id}`, {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            dataType: 'json',
+            method: 'DELETE',
+        })
+
+        if (!delSchedule.ok) {
+            console.log(delSchedule)
+        } else {
+        }
+    }
+
     return (
         <div className={classes.ViewSchedule}>
             <div className={classes.Wrapper}>
-                <h4>Preview Schedule</h4>
+                <h4>Schedule Preview</h4>
 
                 <div className={classes.calender}>
                     <div>
                         <p>Saturday</p>
-                        <p className={classes.time}>
-                            8.00 pm<span> to </span>11.00 pm
-                        </p>
-                        <p className={classes.time}>
-                            12.00 am<span> to </span>1.00 am
-                        </p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'saturday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Sunday</p>
-                        <p className={classes.time}>
-                            8.00 am<span> to </span>10.00 am
-                        </p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'sunday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Monday</p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'monday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Tuesday</p>
-                        <p className={classes.time}>
-                            8.00 am<span> to </span>10.00 am
-                        </p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'tuesday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Wednesday</p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'wednesday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Thursday</p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'thursday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                     <div>
                         <p>Friday</p>
+                        {schedule.length !== 0
+                            ? schedule.map((v, i) => {
+                                  return (
+                                      <div key={i}>
+                                          {v.day === 'friday' ? (
+                                              <p className={classes.time}>
+                                                  {v.start_time}
+                                                  <span> to </span>
+                                                  {v.end_time}
+                                                  <span onClick={() => deleteSchedule(v.id)}>x</span>
+                                              </p>
+                                          ) : null}
+                                      </div>
+                                  )
+                              })
+                            : null}
                     </div>
                 </div>
             </div>
