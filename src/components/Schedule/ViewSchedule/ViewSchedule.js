@@ -8,8 +8,6 @@ const ViewSchedule = ({ change }) => {
 
     const [schedule, setSchedule] = useState('')
 
-    console.log(schedule)
-
     useEffect(() => {
         const funFetch = async () => {
             let meFetch = await fetch(`${api}/me`, {
@@ -58,7 +56,6 @@ const ViewSchedule = ({ change }) => {
         })
 
         if (!delSchedule.ok) {
-            console.log(delSchedule)
         } else {
         }
     }

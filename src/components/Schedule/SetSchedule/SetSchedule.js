@@ -1,10 +1,18 @@
-import { useState, useContext } from 'react'
-import { Auth } from '../../../allContext'
+import { useState, useContext, useEffect } from 'react'
+import { Auth, UserInfo } from '../../../allContext'
 import config from '../../../config.json'
 import classes from './SetSchedule.module.css'
 
 const SetSchedule = ({ change, setChange }) => {
     const { stateAuth } = useContext(Auth)
+    const { stateUser } = useContext(UserInfo)
+    const [profile, setProfile] = useState('')
+
+    useEffect(() => {
+        if (stateAuth.auth) {
+            setProfile(stateUser.info)
+        }
+    }, [setProfile, stateAuth, stateUser])
 
     const [start, setStart] = useState({ hour: 0, minute: 0, period: 'am' })
     const [end, setEnd] = useState({ hour: 0, minute: 0, period: 'am' })
@@ -34,20 +42,8 @@ const SetSchedule = ({ change, setChange }) => {
 
         trueDay()
 
-        let meFetch = await fetch(`${config.api}/me`, {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${stateAuth.token}`,
-            },
-            dataType: 'json',
-            method: 'GET',
-        })
-
-        let meLog = await meFetch.json()
-
         selectedDay.forEach(async (item, i) => {
-            let submitSchedule = await fetch(`${config.api}/doctors/${meLog.id}/schedules`, {
+            let submitSchedule = await fetch(`${config.api}/doctors/${profile.id}/schedules`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
@@ -55,7 +51,7 @@ const SetSchedule = ({ change, setChange }) => {
                 dataType: 'json',
                 method: 'POST',
                 body: JSON.stringify({
-                    doctor_id: meLog.id,
+                    doctor_id: profile.id,
                     schedules: {
                         day: item,
                         start_time: `${start.hour}:${start.minute} ${start.period.toUpperCase()}`,
@@ -65,7 +61,6 @@ const SetSchedule = ({ change, setChange }) => {
             })
 
             if (!submitSchedule.ok) {
-                console.log(await submitSchedule.json())
             } else {
                 let a = change + 1
                 setChange(a)
@@ -81,8 +76,6 @@ const SetSchedule = ({ change, setChange }) => {
                     friday: false,
                 })
             }
-
-            console.log(await submitSchedule.json())
         })
     }
 

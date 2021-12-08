@@ -5,6 +5,7 @@ import classes from './General.module.css'
 
 const General = () => {
     const { stateAuth } = useContext(Auth)
+    //Dummy comment
 
     const [success, setSuccess] = useState('')
     const [warning, setWarning] = useState('')

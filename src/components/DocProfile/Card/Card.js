@@ -1,31 +1,19 @@
 import { useContext, useEffect } from 'react'
 import { useState } from 'react/cjs/react.development'
-import { Auth } from '../../../allContext'
+import { Auth, UserInfo } from '../../../allContext'
 import DocStock from '../../../assets/img/docstock.jpg'
-import config from '../../../config.json'
 import classes from './Card.module.css'
 
 const Card = () => {
     const { stateAuth } = useContext(Auth)
+    const { stateUser } = useContext(UserInfo)
     const [profile, setProfile] = useState('')
 
     useEffect(() => {
-        let funFetch = async () => {
-            let logFetch = await fetch(`${config.api}/me`, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${stateAuth.token}`,
-                },
-                dataType: 'json',
-                method: 'GET',
-            })
-
-            let log = await logFetch.json()
-            setProfile(log)
+        if (stateAuth.auth) {
+            setProfile(stateUser.info)
         }
-        funFetch()
-    }, [stateAuth])
+    }, [setProfile, stateAuth, stateUser])
 
     return (
         <div>
