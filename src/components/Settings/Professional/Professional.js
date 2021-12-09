@@ -1,10 +1,18 @@
-import { useState, useContext } from 'react'
-import { Auth } from '../../../allContext'
+import { useState, useContext, useEffect } from 'react'
+import { Auth, UserInfo } from '../../../allContext'
 import config from '../../../config.json'
 import classes from './Professional.module.css'
 
 const Professional = () => {
     const { stateAuth } = useContext(Auth)
+    const { stateUser } = useContext(UserInfo)
+    const [profile, setProfile] = useState('')
+
+    useEffect(() => {
+        if (stateAuth.auth) {
+            setProfile(stateUser.info)
+        }
+    }, [setProfile, stateAuth, stateUser])
 
     const [success, setSuccess] = useState('')
     const [warning, setWarning] = useState('')
@@ -15,19 +23,7 @@ const Professional = () => {
     const submit = async (e) => {
         e.preventDefault()
 
-        let meFetch = await fetch(`${config.api}/me`, {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${stateAuth.token}`,
-            },
-            dataType: 'json',
-            method: 'GET',
-        })
-
-        let meLog = await meFetch.json()
-
-        let updateFetch = await fetch(`${config.api}/doctors/${meLog.id}`, {
+        let updateFetch = await fetch(`${config.api}/doctors/${profile.id}`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

@@ -1,10 +1,18 @@
-import { useState, useContext } from 'react'
-import { Auth } from '../../../allContext'
+import { useState, useContext, useEffect } from 'react'
+import { Auth, UserInfo } from '../../../allContext'
 import config from '../../../config.json'
 import classes from './Password.module.css'
 
 const Password = () => {
     const { stateAuth } = useContext(Auth)
+    const { stateUser } = useContext(UserInfo)
+    const [profile, setProfile] = useState('')
+
+    useEffect(() => {
+        if (stateAuth.auth) {
+            setProfile(stateUser.info)
+        }
+    }, [setProfile, stateAuth, stateUser])
 
     const [success, setSuccess] = useState('')
     const [warning, setWarning] = useState('')
@@ -21,19 +29,7 @@ const Password = () => {
             return
         }
 
-        let meFetch = await fetch(`${config.api}/me`, {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${stateAuth.token}`,
-            },
-            dataType: 'json',
-            method: 'GET',
-        })
-
-        let meLog = await meFetch.json()
-
-        let changeFetch = await fetch(`${config.api}/users/${meLog.user.id}/password`, {
+        let changeFetch = await fetch(`${config.api}/users/${profile.user.id}/password`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -68,19 +64,19 @@ const Password = () => {
                         <input
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            type="text"
+                            type="password"
                             placeholder="Current Password"
                         />
                         <input
                             value={newPass}
                             onChange={(e) => setNewPass(e.target.value)}
-                            type="text"
+                            type="password"
                             placeholder="New Password"
                         />
                         <input
                             value={cnfPass}
                             onChange={(e) => setCnfPass(e.target.value)}
-                            type="text"
+                            type="password"
                             placeholder="Confirm New Password"
                         />
                         <button>Submit</button>

@@ -1,11 +1,18 @@
-import { useState, useContext } from 'react'
-import { Auth } from '../../../allContext'
+import { useState, useContext, useEffect } from 'react'
+import { Auth, UserInfo } from '../../../allContext'
 import config from '../../../config.json'
 import classes from './General.module.css'
 
 const General = () => {
     const { stateAuth } = useContext(Auth)
-    //Dummy comment
+    const { stateUser } = useContext(UserInfo)
+    const [profile, setProfile] = useState('')
+
+    useEffect(() => {
+        if (stateAuth.auth) {
+            setProfile(stateUser.info)
+        }
+    }, [setProfile, stateAuth, stateUser])
 
     const [success, setSuccess] = useState('')
     const [warning, setWarning] = useState('')
@@ -20,21 +27,8 @@ const General = () => {
             if (general[key]) genObj[key] = general[key]
         }
 
-        let meFetch = await fetch(`${config.api}/me`, {
+        let generalUpdate = await fetch(`${config.api}/users/${profile.user.id}`, {
             headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${stateAuth.token}`,
-            },
-            dataType: 'json',
-            method: 'GET',
-        })
-
-        let meLog = await meFetch.json()
-
-        let generalUpdate = await fetch(`${config.api}/users/${meLog.user.id}`, {
-            headers: {
-                // Accept: 'application/json',
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${stateAuth.token}`,
             },
