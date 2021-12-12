@@ -48,7 +48,7 @@ const Professional = () => {
 
     return (
         <div className={classes.Professional}>
-            <h4>Change Password</h4>
+            <h4>Professional information</h4>
             <form onSubmit={submit}>
                 <div className={classes.wrapInp}>
                     <div>

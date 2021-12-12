@@ -47,7 +47,7 @@ const Prescription = () => {
 
     return (
         <div className={classes.Prescription}>
-            <h4>Change Password</h4>
+            <h4>Prescription Header</h4>
             <form onSubmit={submit}>
                 <div className={classes.wrapInp}>
                     {success.length !== 0 ? <p className={classes.successFlash}>{success}</p> : null}

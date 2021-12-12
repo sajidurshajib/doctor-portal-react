@@ -7,7 +7,6 @@
     background: var(--white);
     border-radius: 0 4px 4px 0;
     box-shadow: 0 5px 10px var(--light-grey);
-    overflow: hidden;
 }
 .Wrapper {
     margin-top: 0;
@@ -21,6 +20,7 @@
     background: var(--primary);
     text-align: center;
     position: relative;
+    border-radius: 0 4px 0 0;
 }
 .Wrapper a:first-child:hover {
     color: var(--white);
@@ -30,6 +30,8 @@
 .Wrapper a {
     display: block;
     padding: 10px;
+    position: relative;
+    text-decoration: none;
 }
 .Wrapper a svg {
     display: block;
@@ -49,4 +51,32 @@
 }
 .Wrapper a.active > svg {
     color: var(--primary);
+}
+
+.Wrapper a span {
+    text-decoration: none;
+    font-size: 10px;
+    color: var(--white);
+    background: var(--grey);
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    padding: 2px 15px;
+    border-radius: 2px;
+    display: none;
+    transition: 300ms;
+    opacity: 0.9;
+}
+.Wrapper a span::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--grey);
+    transform: rotate(45deg);
+    position: absolute;
+    left: -3px;
+    top: 6px;
+}
+.Wrapper a:hover > span {
+    display: block;
 }

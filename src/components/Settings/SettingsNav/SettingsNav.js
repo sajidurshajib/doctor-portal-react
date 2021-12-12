@@ -12,9 +12,15 @@ const SettingsNav = ({ menu, setMenu }) => {
                     Professional Information
                 </p>
                 <p className={menu === 3 ? classes.active : ''} onClick={() => setMenu(3)}>
-                    Prescription
+                    Speciality
                 </p>
                 <p className={menu === 4 ? classes.active : ''} onClick={() => setMenu(4)}>
+                    Prescription
+                </p>
+                <p className={menu === 5 ? classes.active : ''} onClick={() => setMenu(5)}>
+                    Chamber
+                </p>
+                <p className={menu === 6 ? classes.active : ''} onClick={() => setMenu(6)}>
                     Password
                 </p>
             </div>

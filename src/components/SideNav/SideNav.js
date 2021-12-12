@@ -15,24 +15,25 @@ const SideNav = () => {
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
                 <a href={`${conf['ep-local']}/auth/${stateAuth.token}`}>EP</a>
+
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
-                    <FontAwesomeIcon icon={faHome} />
+                    <FontAwesomeIcon icon={faHome} /> <span>Home</span>
                 </Link>
                 <Link to="/profile" className={location.pathname === '/profile' ? classes.active : ''}>
-                    <FontAwesomeIcon icon={faUserMd} />
+                    <FontAwesomeIcon icon={faUserMd} /> <span>Profile</span>
                 </Link>
                 <Link to="/schedule" className={location.pathname === '/schedule' ? classes.active : ''}>
-                    <FontAwesomeIcon icon={faClock} />
+                    <FontAwesomeIcon icon={faClock} /> <span>Schedule</span>
                 </Link>
                 <Link to="/analytics" className={location.pathname === '/analytics' ? classes.active : ''}>
-                    <FontAwesomeIcon icon={faChartLine} />
+                    <FontAwesomeIcon icon={faChartLine} /> <span>Analytics</span>
                 </Link>
                 <Link to="/settings" className={location.pathname === '/settings' ? classes.active : ''}>
-                    <FontAwesomeIcon icon={faCog} />
+                    <FontAwesomeIcon icon={faCog} /> <span>Settings</span>
                 </Link>
 
                 <Link to="/login" onClick={() => dispatchAuth({ type: 'remove' })}>
-                    <FontAwesomeIcon icon={faSignOutAlt} />
+                    <FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span>
                 </Link>
             </div>
         </div>

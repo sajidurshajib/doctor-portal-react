@@ -1,0 +1,75 @@
+.Chamber {
+    padding: 0 20px 20px 50px;
+}
+.Chamber h4 {
+    color: var(--primary);
+    font-weight: 500;
+    display: inline-block;
+    padding-bottom: 5px;
+    padding-right: 40px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.wrapInp {
+    width: 60%;
+}
+.wrapInp input,
+.wrapInp textarea {
+    width: 100%;
+}
+
+.Chamber input,
+.Chamber select {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: 0;
+    background: var(--light-grey);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 12px;
+    color: var(--grey);
+    box-sizing: border-box;
+}
+.Chamber select {
+    width: 50%;
+}
+.Chamber input::placeholder {
+    color: var(--grey2);
+}
+.Chamber button {
+    border: none;
+    border-radius: 4px;
+    background: var(--primary);
+    color: var(--white);
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    transition: 200ms;
+}
+.Chamber button:hover {
+    background: var(--primary);
+}
+
+.Chamber textarea {
+    border: none;
+    border-radius: 4px;
+    background: var(--light-grey);
+    color: var(--grey);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.Chamber textarea:hover,
+.Chamber textarea:focus {
+    color: var(--grey);
+    outline: 0;
+}
+.Chamber textarea::placeholder {
+    color: var(--grey2);
+}
