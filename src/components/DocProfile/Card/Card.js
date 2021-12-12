@@ -1,7 +1,9 @@
 import { useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import { Auth, UserInfo } from '../../../allContext'
 import DocStock from '../../../assets/img/docstock.jpg'
+import { api } from '../../../config.json'
 import classes from './Card.module.css'
 
 const Card = () => {
@@ -9,11 +11,26 @@ const Card = () => {
     const { stateUser } = useContext(UserInfo)
     const [profile, setProfile] = useState('')
 
+    let { id } = useParams()
+
     useEffect(() => {
-        if (stateAuth.auth) {
-            setProfile(stateUser.info)
+        const InsideFunction = async () => {
+            if (id && stateAuth.auth) {
+                let othersProfile = await fetch(`${api}/users/`)
+                let a = await othersProfile.json()
+                let f = a.filter((v) => v.id === parseInt(id))
+                setProfile(f[0])
+            } else if (id) {
+                let othersProfile = await fetch(`${api}/users/`)
+                let a = await othersProfile.json()
+                let f = a.filter((v) => v.id === parseInt(id))
+                setProfile(f[0])
+            } else if (stateAuth.auth) {
+                setProfile(stateUser.info)
+            }
         }
-    }, [setProfile, stateAuth, stateUser])
+        InsideFunction()
+    }, [setProfile, stateAuth, stateUser, id])
 
     return (
         <div>
