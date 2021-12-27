@@ -1,0 +1,35 @@
+.Forum {
+    background: var(--white);
+    padding: 5px;
+}
+.Forum h2 {
+    color: var(--primary);
+    margin: 5px 20px;
+}
+.Forum > div {
+    margin: 10px 20px;
+    border-bottom: 2px solid var(--light);
+}
+.Forum > div > h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px;
+    display: inline;
+}
+.Forum > div > p:nth-child(2) {
+    display: inline;
+    font-size: 10px;
+    margin: 0 10px;
+    color: var(--dark-grey);
+}
+.Forum > div > p:nth-child(3) {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 5px;
+    color: var(--secondary);
+}
+.Forum > div > p:nth-child(4) {
+    font-size: 12px;
+    margin: 5px;
+    color: var(--deep-blue);
+}
