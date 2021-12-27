@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Auth, UserInfo } from './allContext'
-import Analytics from './components/Analytics/Analytics'
+import Analytics from './pages/Analytics'
 import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
