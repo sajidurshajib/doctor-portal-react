@@ -1,0 +1,35 @@
+.Summery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 33%));
+    gap: 20px;
+}
+.Summery > div {
+    border-radius: 5px;
+    padding: 20px 0 30px 20px;
+    color: var(--white);
+    opacity: 0.8;
+    position: relative;
+}
+.Summery > div:nth-child(1) {
+    background: var(--primary);
+}
+.Summery > div:nth-child(2) {
+    background: var(--green);
+}
+.Summery > div:nth-child(3) {
+    background: var(--red);
+}
+.Summery > div > h3 {
+    font-size: 28px;
+    margin: 0;
+}
+.Summery > div > p {
+    margin: 0;
+}
+.Summery > div > svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 70px;
+    opacity: 0.7;
+}
