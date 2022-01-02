@@ -1,0 +1,61 @@
+.Notice {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 33%));
+    gap: 20px;
+    padding: 0 15px 50px 80px;
+    background: var(--light);
+}
+
+.Notice > div {
+    position: relative;
+    z-index: initial;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.Notice > div::before {
+    position: absolute;
+    content: '';
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(transparent, transparent, var(--dark));
+}
+.Notice > div::after {
+    content: 'Notice';
+    position: absolute;
+    left: -45px;
+    top: -12px;
+    padding-top: 30px;
+    background: var(--primary);
+    color: var(--white);
+    transform: rotate(315deg);
+    min-width: 120px;
+    text-align: center;
+}
+.Notice > div > div {
+    color: var(--white);
+    position: absolute;
+    bottom: 5px;
+    z-index: 200;
+    padding: 0 20px;
+    transition: 300ms;
+}
+.Notice > div:hover > div {
+    transform: scale(1.02);
+}
+.Notice > div > div > h4 {
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0;
+}
+.Notice > div > div > span {
+    font-size: 12px;
+    margin: 0;
+}
+.Notice > div > div > p {
+    font-weight: 400;
+    margin: 0;
+}
