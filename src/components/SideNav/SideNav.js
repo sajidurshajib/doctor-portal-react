@@ -11,8 +11,6 @@ const SideNav = () => {
 
     const { stateAuth, dispatchAuth } = useContext(Auth)
 
-    console.log(env.EP_SITE)
-
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
