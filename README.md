@@ -4,5 +4,5 @@
 
 ```
 API='https://epapidev.healthx.com.bd'
-EP_SITE='https://devdoc.healthx.com.bd'
+EP_SITE='https://devep.healthx.com.bd'
 ```
