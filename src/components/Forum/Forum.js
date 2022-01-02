@@ -3,7 +3,7 @@ import classes from './Forum.module.css'
 const Forum = () => {
     return (
         <div className={classes.Forum}>
-            <h2>Desection Forum</h2>
+            <h2>Dissection Forum</h2>
             <div>
                 <h4>Hello world</h4>
                 <p>- 12/12/2012</p>

@@ -1,14 +1,23 @@
 .Forum {
     background: var(--white);
     padding: 5px;
+    box-sizing: border-box;
+    margin: 20px 20px 20px 0;
 }
 .Forum h2 {
     color: var(--primary);
-    margin: 5px 20px;
+    margin: 5px 25px;
+    font-weight: 400;
+    font-size: 24px;
 }
 .Forum > div {
-    margin: 10px 20px;
+    margin: 20px 20px;
     border-bottom: 2px solid var(--light);
+    transition: 200ms;
+}
+.Forum > div:hover {
+    transform: scale(1.02);
+    cursor: pointer;
 }
 .Forum > div > h4 {
     font-size: 16px;
