@@ -1,9 +1,9 @@
 import { faChartLine, faClock, faCog, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext } from 'react'
+import env from 'react-dotenv'
 import { Link, useLocation } from 'react-router-dom'
 import { Auth } from '../../allContext'
-import conf from '../../config.json'
 import classes from './SideNav.module.css'
 
 const SideNav = () => {
@@ -11,10 +11,12 @@ const SideNav = () => {
 
     const { stateAuth, dispatchAuth } = useContext(Auth)
 
+    console.log(env.EP_SITE)
+
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
-                <a href={`${conf['ep-local']}/auth/${stateAuth.token}`}>EP</a>
+                <a href={`${env.EP_SITE}/auth/${stateAuth.token}`}>EP</a>
 
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faHome} /> <span>Home</span>
