@@ -1,6 +1,6 @@
 import { faChartLine, faClock, faCog, faHome, faSignOutAlt, faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import env from 'react-dotenv'
 import { Link, useLocation } from 'react-router-dom'
 import { Auth } from '../../allContext'
@@ -10,11 +10,17 @@ const SideNav = () => {
     const location = useLocation()
 
     const { stateAuth, dispatchAuth } = useContext(Auth)
+    const [windowHref, setWindowHref] = useState(false)
+
+    if (windowHref) {
+        window.location.href = `${env.EP_SITE}/auth/${stateAuth.token}`
+    }
 
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
-                <a href={`${env.EP_SITE}/auth/${stateAuth.token}`}>EP</a>
+                {/* <a href={`${env.EP_SITE}/auth/${stateAuth.token}`}>EP</a> */}
+                <p onClick={() => setWindowHref(!windowHref)}>EP</p>
 
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
                     <FontAwesomeIcon icon={faHome} /> <span>Home</span>
