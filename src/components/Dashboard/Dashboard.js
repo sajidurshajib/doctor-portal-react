@@ -1,7 +1,7 @@
 import Doctors from '../Doctors/Doctors'
-import Events from '../Events/Events'
+// import Events from '../Events/Events'
 import Forum from '../Forum/Forum'
-import Notice from '../Notice/Notice'
+// import Notice from '../Notice/Notice'
 import PatientList from '../PatientList/PatientList'
 import TodayList from '../PatientList/TodayList'
 import SideNav from '../SideNav/SideNav'
@@ -21,8 +21,8 @@ const Dashboard = () => {
                     <Forum />
                 </div>
             </div>
-            <Notice />
-            <Events />
+            {/* <Notice />
+            <Events /> */}
         </div>
     )
 }
