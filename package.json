@@ -56,8 +56,8 @@
     },
     "react-dotenv": {
         "whitelist": [
-            "API",
-            "EP_SITE"
+            "REACT_APP_API",
+            "REACT_APP_EP_SITE"
         ]
     }
 }
