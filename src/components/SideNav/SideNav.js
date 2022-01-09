@@ -13,7 +13,11 @@ const SideNav = () => {
     const [windowHref, setWindowHref] = useState(false)
 
     if (windowHref) {
-        window.location = `${env.REACT_APP_EP_SITE}/auth/${stateAuth.token}`
+        if (process.env.NODE_ENV === 'production') {
+            window.location.href = `${process.env.REACT_APP_EP_SITE}/auth/${stateAuth.token}`
+        } else {
+            window.location.href = `${env.REACT_APP_EP_SITE}/auth/${stateAuth.token}`
+        }
     }
 
     console.log(env.REACT_APP_EP_SITE)
