@@ -20,9 +20,6 @@ const SideNav = () => {
         }
     }
 
-    console.log(env.REACT_APP_EP_SITE)
-    console.log(process.env.REACT_APP_EP_SITE)
-
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
