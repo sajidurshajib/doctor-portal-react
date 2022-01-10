@@ -23,10 +23,7 @@ const App = () => {
                     <Router>
                         <Switch>
                             <ProtectedRoute path="/" exact={true} component={Home} />
-
-                            {/* <Route path="/profile/:id" component={ProfilePage} /> */}
                             <ProtectedRoute path="/profile" component={ProfilePage} />
-
                             <ProtectedRoute path="/schedule" component={SchedulePage} />
                             <ProtectedRoute path="/analytics" component={Analytics} />
                             <ProtectedRoute path="/settings" component={SettingsPage} />
