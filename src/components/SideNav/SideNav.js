@@ -23,7 +23,6 @@ const SideNav = () => {
     return (
         <div className={classes.SideNav}>
             <div className={classes.Wrapper}>
-                {/* <a href={`${env.EP_SITE}/auth/${stateAuth.token}`}>EP</a> */}
                 <p onClick={() => setWindowHref(!windowHref)}>EP</p>
 
                 <Link to="/" className={location.pathname === '/' ? classes.active : ''}>
