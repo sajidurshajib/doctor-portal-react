@@ -1,12 +1,14 @@
 import { useState, useContext, useEffect } from 'react'
+import env from 'react-dotenv'
 import { Auth, UserInfo } from '../../../allContext'
-import config from '../../../config.json'
 import classes from './SetSchedule.module.css'
 
 const SetSchedule = ({ change, setChange }) => {
     const { stateAuth } = useContext(Auth)
     const { stateUser } = useContext(UserInfo)
     const [profile, setProfile] = useState('')
+
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
     useEffect(() => {
         if (stateAuth.auth) {
@@ -43,7 +45,7 @@ const SetSchedule = ({ change, setChange }) => {
         trueDay()
 
         selectedDay.forEach(async (item, i) => {
-            let submitSchedule = await fetch(`${config.api}/doctors/${profile.id}/schedules`, {
+            let submitSchedule = await fetch(`${api}/doctors/${profile.id}/schedules`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',

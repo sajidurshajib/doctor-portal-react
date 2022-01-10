@@ -1,12 +1,14 @@
 import { useEffect, useContext, useState } from 'react'
+import env from 'react-dotenv'
 import { Auth } from '../../../allContext'
-import { api } from '../../../config.json'
 import classes from './ViewSchedule.module.css'
 
 const ViewSchedule = ({ change }) => {
     const { stateAuth } = useContext(Auth)
 
     const [schedule, setSchedule] = useState('')
+
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
     useEffect(() => {
         const funFetch = async () => {
@@ -31,7 +33,7 @@ const ViewSchedule = ({ change }) => {
         }
 
         funFetch()
-    }, [change, stateAuth, schedule])
+    }, [change, stateAuth, schedule, api])
 
     const deleteSchedule = async (id) => {
         let meFetch = await fetch(`${api}/me`, {

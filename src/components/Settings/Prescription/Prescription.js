@@ -1,12 +1,14 @@
 import { useState, useContext, useEffect } from 'react'
+import env from 'react-dotenv'
 import { Auth, UserInfo } from '../../../allContext'
-import { api } from '../../../config.json'
 import classes from './Prescription.module.css'
 
 const Prescription = () => {
     const { stateAuth } = useContext(Auth)
     const { stateUser } = useContext(UserInfo)
     const [profile, setProfile] = useState('')
+
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
     useEffect(() => {
         if (stateAuth.auth) {

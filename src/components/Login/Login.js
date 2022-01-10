@@ -1,9 +1,9 @@
 import { faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, useContext } from 'react'
+import env from 'react-dotenv'
 import { Link, useHistory } from 'react-router-dom'
 import { Auth } from '../../allContext'
-import config from '../../config.json'
 import classes from './Login.module.css'
 
 const Login = () => {
@@ -14,10 +14,12 @@ const Login = () => {
     const [identifier, setIdentifier] = useState('')
     const [password, setPassword] = useState('')
 
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
+
     const submit = async (e) => {
         e.preventDefault()
 
-        let logFetch = await fetch(`${config.api}/login`, {
+        let logFetch = await fetch(`${api}/login`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

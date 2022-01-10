@@ -1,6 +1,7 @@
 import { faUserMd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext, useState } from 'react'
+import env from 'react-dotenv'
 import { useHistory } from 'react-router-dom'
 import { Auth } from '../../allContext'
 import classes from './Register.module.css'
@@ -20,6 +21,8 @@ const Register = () => {
     const { stateAuth } = useContext(Auth)
     const history = useHistory()
 
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
+
     const submit = async (e) => {
         e.preventDefault()
 
@@ -28,7 +31,7 @@ const Register = () => {
             return
         }
 
-        let regId = await fetch('/signup', {
+        let regId = await fetch(`${api}/signup`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -55,7 +58,7 @@ const Register = () => {
         }
 
         if (regId.ok) {
-            let doctorId = await fetch('doctors/', {
+            let doctorId = await fetch(`${api}/doctors/`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
@@ -72,7 +75,7 @@ const Register = () => {
             let doctor = await doctorId.json()
             // console.log(doctor)
 
-            let specialId = await fetch(`doctors/${doctor.id}/specialities/`, {
+            let specialId = await fetch(`${api}/doctors/${doctor.id}/specialities/`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
