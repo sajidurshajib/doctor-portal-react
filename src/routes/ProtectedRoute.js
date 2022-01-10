@@ -27,7 +27,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
         if (stateAuth.auth === true) {
             funFetch()
         }
-    }, [stateAuth, dispatchUser])
+    }, [stateAuth, dispatchUser, api])
 
     return (
         <Route
