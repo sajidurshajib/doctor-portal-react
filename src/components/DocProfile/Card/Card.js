@@ -1,6 +1,5 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 // import { useParams } from 'react-router-dom'
-import { useState } from 'react/cjs/react.development'
 import { Auth, UserInfo } from '../../../allContext'
 import DocStock from '../../../assets/img/docstock.jpg'
 // import { api } from '../../../config.json'
@@ -10,8 +9,6 @@ const Card = () => {
     const { stateAuth } = useContext(Auth)
     const { stateUser } = useContext(UserInfo)
     const [profile, setProfile] = useState('')
-
-    // let { id } = useParams()
 
     useEffect(() => {
         // const InsideFunction = async () => {
