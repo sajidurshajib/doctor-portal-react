@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react'
+import env from 'react-dotenv'
 import { Route, Redirect } from 'react-router-dom'
 import { Auth, UserInfo } from '../allContext'
-import { api } from '../config.json'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
     const { stateAuth } = useContext(Auth)
     const { dispatchUser } = useContext(UserInfo)
+
+    const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
     useEffect(() => {
         let funFetch = async () => {
