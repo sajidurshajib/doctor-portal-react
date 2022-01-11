@@ -58,7 +58,7 @@ const Register = () => {
         }
 
         if (regId.ok) {
-            let doctorId = await fetch(`${api}/doctors/`, {
+            let doctorId = await fetch(`${api}/doctors`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Register = () => {
             let doctor = await doctorId.json()
             // console.log(doctor)
 
-            let specialId = await fetch(`${api}/doctors/${doctor.id}/specialities/`, {
+            let specialId = await fetch(`${api}/doctors/${doctor.id}/specialities`, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
