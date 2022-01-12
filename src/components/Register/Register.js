@@ -65,7 +65,7 @@ const Register = () => {
         if (!regId.ok) {
             history.push('login/')
         }
-
+    }
 
     // Redirect if login
     if (stateAuth.auth) {
