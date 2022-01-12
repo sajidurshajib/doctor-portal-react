@@ -31,7 +31,7 @@ const Register = () => {
             return
         }
 
-        let regId = await fetch(`${api}/signup`, {
+        let regId = await fetch(`${api}/doctors`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -39,13 +39,18 @@ const Register = () => {
             dataType: 'json',
             method: 'POST',
             body: JSON.stringify({
-                email,
-                phone,
-                is_active: true,
-                name,
-                password,
-                sex,
-                role: 'doctor',
+                user: {
+                    email,
+                    phone,
+                    is_active: true,
+                    name,
+                    password,
+                    sex,
+                    role: 'doctor',
+                },
+                qualification,
+                bmdc_number: bmdc,
+                speciality,
             }),
         })
 
@@ -57,43 +62,10 @@ const Register = () => {
             setAlert([...alert, newMessage])
         }
 
-        if (regId.ok) {
-            let doctorId = await fetch(`${api}/doctors`, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                dataType: 'json',
-                method: 'POST',
-                body: JSON.stringify({
-                    user_id: reg.id,
-                    qualification,
-                    bmdc_number: bmdc,
-                }),
-            })
-
-            let doctor = await doctorId.json()
-            // console.log(doctor)
-
-            let specialId = await fetch(`${api}/doctors/${doctor.id}/specialities`, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                dataType: 'json',
-                method: 'POST',
-                body: JSON.stringify({
-                    speciality,
-                }),
-            })
-
-            await specialId.json()
-
-            if (!regId.ok) {
-                history.push('login/')
-            }
+        if (!regId.ok) {
+            history.push('login/')
         }
-    }
+
 
     // Redirect if login
     if (stateAuth.auth) {
