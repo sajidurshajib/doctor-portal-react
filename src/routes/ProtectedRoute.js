@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react'
 import env from 'react-dotenv'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import { Auth, UserInfo } from '../allContext'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-    const { stateAuth } = useContext(Auth)
+    const { stateAuth, dispatchAuth } = useContext(Auth)
     const { dispatchUser } = useContext(UserInfo)
+
+    const history = useHistory()
 
     const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
@@ -22,20 +24,23 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
             })
 
             let log = await logFetch.json()
-            dispatchUser({ type: 'set', payload: log })
+
+            if (logFetch.ok) {
+                dispatchUser({ type: 'set', payload: log })
+            } else {
+                dispatchAuth({ type: 'remove' })
+            }
         }
-        if (stateAuth.auth === true) {
+
+        if (stateAuth.auth === true && stateAuth.token.length !== 0) {
             funFetch()
         }
-    }, [stateAuth, dispatchUser, api])
+    }, [stateAuth, dispatchUser, api, dispatchAuth])
 
-    return (
-        <Route
-            {...rest}
-            render={(props) =>
-                stateAuth.auth === true ? <Component {...rest} {...props} /> : <Redirect to="/login" />
-            }
-        />
-    )
+    if (stateAuth.auth === true) {
+        return <Route {...rest} render={(props) => <Component {...rest} {...props} />} />
+    } else {
+        return history.push('/login')
+    }
 }
 export default ProtectedRoute
