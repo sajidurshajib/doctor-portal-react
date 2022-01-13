@@ -40,11 +40,11 @@ const Login = () => {
     }
 
     // Redirect if login
-    if (stateAuth.auth) {
-        history.push('/')
-    }
+
     return (
         <div className={classes.Login}>
+            {stateAuth.auth ? history.push('/') : null}
+
             <div className={classes.wrapper}>
                 <div className={classes.card}>
                     <FontAwesomeIcon icon={faUserMd} />
