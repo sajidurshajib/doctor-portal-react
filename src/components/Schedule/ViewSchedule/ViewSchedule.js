@@ -11,28 +11,39 @@ const ViewSchedule = ({ change }) => {
     const api = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API : env.REACT_APP_API
 
     useEffect(() => {
+        let controller = new AbortController()
         const funFetch = async () => {
-            let meFetch = await fetch(`${api}/me`, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${stateAuth.token}`,
-                },
-                dataType: 'json',
-                method: 'GET',
-            })
+            try {
+                let meFetch = await fetch(`${api}/me`, {
+                    signal: controller.signal,
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${stateAuth.token}`,
+                    },
+                    dataType: 'json',
+                    method: 'GET',
+                })
 
-            let meLog = await meFetch.json()
+                let meLog = await meFetch.json()
 
-            let scheduleFetch = await fetch(`${api}/doctors/${meLog.id}/schedules`)
-            let allSchedule = await scheduleFetch.json()
+                let scheduleFetch = await fetch(`${api}/doctors/${meLog.id}/schedules`, {
+                    signal: controller.signal,
+                })
+                let allSchedule = await scheduleFetch.json()
 
-            allSchedule.schedules.sort((a, b) => (a.start_time > b.start_time ? 1 : -1))
+                allSchedule.schedules.sort((a, b) => (a.start_time > b.start_time ? 1 : -1))
 
-            setSchedule(allSchedule.schedules)
+                setSchedule(allSchedule.schedules)
+                controller = null
+            } catch (err) {}
         }
 
         funFetch()
+
+        return () => {
+            controller?.abort()
+        }
     }, [change, stateAuth, schedule, api])
 
     const deleteSchedule = async (id) => {
