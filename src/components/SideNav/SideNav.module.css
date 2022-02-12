@@ -6,7 +6,12 @@
     top: 20px;
     background: var(--white);
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 5px 10px var(--light-grey);
+    box-shadow: 0 5px 10px var(--grey);
+    z-index: 100;
+    transition: 200ms;
+}
+.SideNav:hover {
+    width: 200px;
 }
 .Wrapper {
     margin-top: 0;
@@ -15,7 +20,7 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    display: block;
+    display: inline-block;
     height: 100%;
     padding: 10px;
     margin: 0;
@@ -38,7 +43,7 @@
     text-decoration: none;
 }
 .Wrapper a svg {
-    display: block;
+    display: inline-block;
     color: var(--grey);
     margin: 0 auto;
     font-size: 20px;
